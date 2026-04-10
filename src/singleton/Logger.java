@@ -4,9 +4,19 @@ import java.util.ArrayList;
 
 public class Logger {
 
-	private ArrayList<String> mensajes;
+	// Parte estática de la propia clase
 	private static Logger logger;
 
+	public static Logger getLogger() {
+		if(logger == null) {
+			logger = new Logger();
+		}
+		return logger;
+	}
+	
+	// Parte del objeto en sí
+	private ArrayList<String> mensajes;
+	
 	private Logger() {
 		mensajes = new ArrayList<>();
 	}
@@ -21,12 +31,7 @@ public class Logger {
 		}
 	}
 
-	public static Logger getLogger() {
-		if(logger == null) {
-			logger = new Logger();
-		}
-		return logger;
-	}
+	
 
 
 }
